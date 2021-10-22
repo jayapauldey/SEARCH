@@ -127,7 +127,7 @@ class GoogleDriveHelper:
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
                                  title = 'HM DRIVE SEARCH',
                                  author_name='HM MODS',
-                                 author_url='https://t.me/HMMODS_OFFICIAL,
+                                 author_url='https://t.me/HMMODS_OFFICIAL',
                                  html_content=content)
         return
 
@@ -180,9 +180,9 @@ class GoogleDriveHelper:
 
         for content in self.telegraph_content :
             self.path.append(Telegraph(access_token=telegraph_token).create_page(
-                                                    title = 'Drive Search',
-                                                    author_name='drive-searchbot',
-                                                    author_url='https://github.com/breakdowns/drive-searchbot',
+                                                    title = 'HM DRIVE SEARCH',
+                                                    author_name='HM DRIVE',
+                                                    author_url='https://t.me/HMDRIVE',
                                                     html_content=content
                                                     )['path'])
 
