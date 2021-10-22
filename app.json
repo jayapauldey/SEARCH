@@ -7,7 +7,7 @@
       "telegram",
       "python"
     ],
-    "repository": "https://github.com/breakdowns/drive-searchbot",
+    "repository": "https://github.com/jayapauldey/search",
     "website": "https://github.com/breakdowns",
     "success_url": "https://t.me/SlamDevs",
     "stack": "container",
