@@ -125,9 +125,9 @@ class GoogleDriveHelper:
                     content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
                     nxt_page += 1
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
-                                 title = 'Drive Search',
-                                 author_name='drive-searchbot',
-                                 author_url='https://github.com/breakdowns/drive-searchbot',
+                                 title = 'HM DRIVE SEARCH',
+                                 author_name='HM MODS',
+                                 author_url='https://t.me/HMMODS_OFFICIAL,
                                  html_content=content)
         return
 
@@ -145,7 +145,7 @@ class GoogleDriveHelper:
                 for file in response:
                     if file.get('mimeType') == "application/vnd.google-apps.folder":  # Detect Whether Current Entity is a Folder or File.
                         msg += f"📁 <code>{file.get('name')}</code> <b>(folder)</b><br>" \
-                               f"<b><a href='https://drive.google.com/drive/folders/{file.get('id')}'>Drive Link</a></b>"
+                               f"<b><a href='https://drive.google.com/drive/folders/{file.get('id')}'>☁️Drive Link☁️</a></b>"
                         if INDEX_URL[INDEX] is not None:
                             url_path = "/".join(
                                 requests.utils.quote(n, safe='')
@@ -153,14 +153,18 @@ class GoogleDriveHelper:
                             )
 
                             url = f'{INDEX_URL[INDEX]}/{url_path}/'
-                            msg += f'<b> | <a href="{url}">Index Link</a></b>'
+                            urls = f'{INDEX_URL[INDEX]}/{url_path}/?a=view'
+                            msg += f'<b> | <a href="{url}">⚡Index Link⚡</a></b>'
+                            msg += f'<b> | <a href="{urls}">🌐 VIEW LINK 🌐</a></b>'
                     else:
                         msg += f"📄 <code>{file.get('name')}</code> <b>({self.get_readable_file_size(file.get('size'))})</b><br>" \
-                               f"<b><a href='https://drive.google.com/uc?id={file.get('id')}&export=download'>Drive Link</a></b>"
+                               f"<b><a href='https://drive.google.com/uc?id={file.get('id')}&export=download'>☁️Drive Link☁️</a></b>"
                         if INDEX_URL[INDEX] is not None:
                             url_path = "/".join([requests.utils.quote(n, safe ='') for n in self.get_recursive_list(file, parent_id)])
                             url = f'{INDEX_URL[INDEX]}/{url_path}'
-                            msg += f'<b> | <a href="{url}">Index Link</a></b>'
+                            urls = f'{INDEX_URL[INDEX]}/{url_path}/?a=view'
+                            msg += f'<b> | <a href="{url}">⚡Index Link⚡</a></b>'
+                            msg += f'<b> | <a href="{urls}">🌐 VIEW LINK 🌐</a></b>'
                     msg += '<br><br>'
                     content_count += 1
                     if content_count == TELEGRAPHLIMIT :
